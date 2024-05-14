@@ -362,22 +362,24 @@
       }
 
       // Фиксация разрешения
-       function lock(object, aspectRatio) {
-                if (window.innerWidth / window.innerHeight > aspectRatio) {
-                    object.style.width = window.innerHeight * aspectRatio + "px";
-                    object.style.height = "100%";
-                } else {
-                    object.style.width = "100%";
-                    object.style.height = window.innerWidth / aspectRatio + "px";
-                }
+      function lock(object, aspectRatio) {
+        if(window.innerWidth / window.innerHeight > aspectRatio) {
+          object.style.width = window.innerHeight * aspectRatio + "px";
+          object.style.height = "100%";
+          scaleFactor = window.innerHeight * aspectRatio / 21;
+        } else {
+          object.style.width = "100%";
+          object.style.height = window.innerWidth / aspectRatio + "px";
+          scaleFactor = window.innerWidth / aspectRatio / 34;
+        }
 
-                // Центрируем
-                object.style.margin = "auto";
-                object.style.top = "0";
-                object.style.left = "0";
-                object.style.bottom = "0";
-                object.style.right = "0";
-            }
+        // Центрируем
+        object.style.margin = "auto";
+        object.style.top = "0";
+        object.style.left = "0";
+        object.style.bottom = "0";
+        object.style.right = "0";
+      }
 
       // Настраиваем расположение, размер и оформление полосы с лого
       var loading_bar_style;
